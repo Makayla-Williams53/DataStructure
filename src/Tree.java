@@ -6,16 +6,24 @@ public class Tree
     //variables
     private TreeNode root;
     private Queue<TreeNode> queue = new LinkedList<>();
+    private int i = 0;
+    private int depth = 0;
+    private int size;
 
     //constructor
     public Tree()
     {
         root = null;
-    }
+    }//end constructor Tree
 
     public TreeNode getRoot()
     {
         return root;
+    }//end getRoot
+
+    public int getSize()
+    {
+        return depth;
     }
 
     //create root
@@ -23,7 +31,52 @@ public class Tree
     {
         root = new TreeNode(x);
         queue.add(root);
-    }
+        depth++;
+    }//end addRoot
+
+    //add row
+    public void addRow()
+    {
+        //variable to hold where i was at the start
+        int tempi = i;
+
+        while(!queue.isEmpty())
+        {
+            //create a variable size and set it to the size of queue
+            size = queue.size();
+            i++;
+            //if i is greater than the height of the tree STOP
+            if(i > depth)
+            {
+                //FIX LATER
+                //I apologize in advance for this
+                break;
+            }//end if
+            else
+            {
+                //create a left and right child
+                for(int j = 0; j < size; j++)
+                {
+                    //remove the current node from the queue
+                    TreeNode node = queue.remove();
+                    //add left child
+                    node.left = new TreeNode(i);
+                    //add right child
+                    node.right = new TreeNode(i);
+
+                    //add the children to the queue
+                    queue.add(node.left);
+                    queue.add(node.right);
+                }//end for loop
+            }//end else
+        }//end while loop
+
+        //sets i back to increase by 1 from where it was at the start of the call
+        i = tempi+1;
+        //increases the depth by 1
+        depth++;
+
+    }//end addRow
 
 
     //print out tree (goes left, root, then right)
@@ -56,4 +109,4 @@ public class Tree
             right = null;
         }//end constructor TreeNode
     }//end class TreeNode
-}
+}//end Tree class
