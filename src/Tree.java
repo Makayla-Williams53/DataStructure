@@ -75,7 +75,6 @@ public class Tree
         i = tempi+1;
         //increases the depth by 1
         depth++;
-
     }//end addRow
 
 
@@ -98,10 +97,12 @@ public class Tree
 
     private class TreeNode
     {
+        //creates variables
         public int value;
         public TreeNode left;
         public TreeNode right;
 
+        //constructor
         public TreeNode(int x)
         {
             value = x;
