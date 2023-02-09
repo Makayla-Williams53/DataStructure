@@ -77,6 +77,43 @@ public class Tree
         depth++;
     }//end addRow
 
+    public void deleteRow()
+    {
+        int newDepth = depth--;
+        if(depth == 0);
+        {
+            root = null;
+        }//end if
+        Queue<TreeNode> newQueue = new LinkedList<>();
+        int newi = 0;
+
+        TreeNode newRoot = new TreeNode(0);
+        newQueue.add(root);
+
+        while(!queue.isEmpty())
+        {
+            int newSize = newQueue.size();
+            newi++;
+            if(newi > newDepth)
+            {
+                break;
+            }
+            else
+            {
+                for(int j = 0; j < size; j++)
+                {
+                    TreeNode node = newQueue.remove();
+                    node.left = new TreeNode(newi);
+                    node.right = new TreeNode(newi);
+
+                    newQueue.add(node.left);
+                    newQueue.add(node.right);
+                }//end for loop
+            }//end else
+        }//end while loop
+
+        root = newRoot;
+    }//end deleteRow
 
     //print out tree (goes left, root, then right)
     public void printInOrder(TreeNode node)

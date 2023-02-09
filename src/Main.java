@@ -23,6 +23,10 @@ public class Main {
         myTree.addRow();
         System.out.println("\nRow 3");
         myTree.printInOrder(myTree.getRoot());
+
+        myTree.deleteRow();
+        System.out.print("\nDeleted Row");
+        myTree.printInOrder(myTree.getRoot());
     }
 
 
