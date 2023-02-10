@@ -79,8 +79,8 @@ public class Tree
 
     public void deleteRow()
     {
-        int newDepth = depth--;
-        if(depth == 0);
+        int newDepth = depth - 2;
+        if(newDepth == 0);
         {
             root = null;
         }//end if
@@ -88,9 +88,9 @@ public class Tree
         int newi = 0;
 
         TreeNode newRoot = new TreeNode(0);
-        newQueue.add(root);
+        newQueue.add(newRoot);
 
-        while(!queue.isEmpty())
+        while(!newQueue.isEmpty())
         {
             int newSize = newQueue.size();
             newi++;
@@ -100,7 +100,7 @@ public class Tree
             }
             else
             {
-                for(int j = 0; j < size; j++)
+                for(int j = 0; j < newSize; j++)
                 {
                     TreeNode node = newQueue.remove();
                     node.left = new TreeNode(newi);

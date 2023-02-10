@@ -24,8 +24,13 @@ public class Main {
         System.out.println("\nRow 3");
         myTree.printInOrder(myTree.getRoot());
 
+        //adds a row
+        myTree.addRow();
+        System.out.println("\nRow 4");
+        myTree.printInOrder(myTree.getRoot());
+
         myTree.deleteRow();
-        System.out.print("\nDeleted Row");
+        System.out.println("\nDeleted Row");
         myTree.printInOrder(myTree.getRoot());
     }
 
