@@ -29,13 +29,16 @@ public class Main {
         System.out.println("\nRow 4");
         myTree.printInOrder(myTree.getRoot());
 
+        //deleted row
         myTree.deleteRow();
         System.out.println("\nDeleted Row");
         myTree.printInOrder(myTree.getRoot());
 
+        //searches for 5
         System.out.println("\nSearched for 5");
         myTree.searchNodeTest(myTree.getRoot(), 5);
 
+        //searches for 700
         System.out.println("Searched for 700");
         myTree.searchNodeTest(myTree.getRoot(), 700);
     }

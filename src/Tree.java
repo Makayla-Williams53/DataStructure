@@ -5,7 +5,7 @@ public class Tree
 {
     //variables
     private TreeNode root;
-    private Queue<TreeNode> queue = new LinkedList<>();
+    private final Queue<TreeNode> queue = new LinkedList<>();
     private int i = 0;
     private int depth = 0;
     private int size;
@@ -13,7 +13,7 @@ public class Tree
     //set a new count variable for the different nodes
     private int newCount = 1;
     //boolean for search method
-    private static boolean found = false;
+    private final static boolean found = false;
 
     //constructor
     public Tree()
@@ -25,11 +25,6 @@ public class Tree
     {
         return root;
     }//end getRoot
-
-    public int getSize()
-    {
-        return depth;
-    }
 
     //create root
     public void addRoot(int x)
@@ -139,8 +134,10 @@ public class Tree
         root = newRoot;
     }//end deleteRow
 
+    //takes the results from the searchNode and puts it into printed sentences
     public void searchNodeTest(TreeNode node, int x)
     {
+        //if found
         if(searchNode(node, x))
         {
             System.out.println("Value was found within the tree");
@@ -160,20 +157,24 @@ public class Tree
         }//end if
         else
         {
+            //if the value is that node return true
             if(node.value == x)
             {
                 return true;
             }//end inner if
+            //if not found search left node
             if(!found && node.left != null)
             {
                 searchNode(node.left, x);
             }//end second inner if
+            //if not found search right node
             if(!found && node.right != null)
             {
                 searchNode(node.right, x);
             }//end third inner if
         }//end else
 
+        //return found var
         return found;
     }//end searchNode
 
@@ -194,7 +195,7 @@ public class Tree
     }//end printInOrder
 
 
-    private class TreeNode
+    private static class TreeNode
     {
         //creates variables
         public int value;
