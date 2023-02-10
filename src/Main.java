@@ -32,6 +32,12 @@ public class Main {
         myTree.deleteRow();
         System.out.println("\nDeleted Row");
         myTree.printInOrder(myTree.getRoot());
+
+        System.out.println("\nSearched for 5");
+        myTree.searchNodeTest(myTree.getRoot(), 5);
+
+        System.out.println("Searched for 700");
+        myTree.searchNodeTest(myTree.getRoot(), 700);
     }
 
 

@@ -12,6 +12,8 @@ public class Tree
     private int count = 1;
     //set a new count variable for the different nodes
     private int newCount = 1;
+    //boolean for search method
+    private static boolean found = false;
 
     //constructor
     public Tree()
@@ -136,6 +138,44 @@ public class Tree
         //set the original root to the newly created one
         root = newRoot;
     }//end deleteRow
+
+    public void searchNodeTest(TreeNode node, int x)
+    {
+        if(searchNode(node, x))
+        {
+            System.out.println("Value was found within the tree");
+        }//end if
+        else
+        {
+            System.out.println("Value was not found within the tree");
+        }//end else
+    }//end searchNodeTest
+
+    public boolean searchNode(TreeNode node, int x)
+    {
+        //if the tree is empty print out empty
+        if(root == null)
+        {
+            System.out.println("Tree is empty");
+        }//end if
+        else
+        {
+            if(node.value == x)
+            {
+                return true;
+            }//end inner if
+            if(!found && node.left != null)
+            {
+                searchNode(node.left, x);
+            }//end second inner if
+            if(!found && node.right != null)
+            {
+                searchNode(node.right, x);
+            }//end third inner if
+        }//end else
+
+        return found;
+    }//end searchNode
 
     //print out tree (goes left, root, then right)
     public void printInOrder(TreeNode node)
