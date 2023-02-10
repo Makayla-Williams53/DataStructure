@@ -9,6 +9,9 @@ public class Tree
     private int i = 0;
     private int depth = 0;
     private int size;
+    private int count = 1;
+    //set a new count variable for the different nodes
+    private int newCount = 1;
 
     //constructor
     public Tree()
@@ -60,9 +63,11 @@ public class Tree
                     //remove the current node from the queue
                     TreeNode node = queue.remove();
                     //add left child
-                    node.left = new TreeNode(i);
+                    node.left = new TreeNode(count);
+                    count++;
                     //add right child
-                    node.right = new TreeNode(i);
+                    node.right = new TreeNode(count);
+                    count++;
 
                     //add the children to the queue
                     queue.add(node.left);
@@ -116,8 +121,10 @@ public class Tree
                 {
                     //set a current node to the first one in the queue and remove it from the queue
                     TreeNode node = newQueue.remove();
-                    node.left = new TreeNode(newi);
-                    node.right = new TreeNode(newi);
+                    node.left = new TreeNode(newCount);
+                    newCount++;
+                    node.right = new TreeNode(newCount);
+                    newCount++;
 
                     //add node left and node right to queue
                     newQueue.add(node.left);
