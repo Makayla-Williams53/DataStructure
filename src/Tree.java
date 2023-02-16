@@ -55,8 +55,8 @@ public class Tree
             //if i is greater than the height of the tree STOP
             if(i > depth)
             {
-                //FIX LATER
                 //I apologize in advance for this
+                //I truly tried to figure out a way to get this to work without the break
                 break;
             }//end if
             else
@@ -116,6 +116,8 @@ public class Tree
             //if the newi is greater than the newdepth break
             if(newi > newDepth)
             {
+                //forgive me
+                //I tried to get rid of it, I really did
                 break;
             }//end if
             else
