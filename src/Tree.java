@@ -13,7 +13,7 @@ public class Tree
     //set a new count variable for the different nodes
     private int newCount = 1;
     //boolean for search method
-    private final static boolean found = false;
+    private static boolean found = false;
 
     //constructor
     public Tree()
@@ -29,6 +29,16 @@ public class Tree
     //create root
     public void addRoot(int x)
     {
+//        if(queue.isEmpty())
+//        {
+//            root = new TreeNode(x);
+//            queue.add(root);
+//            depth++;
+//        }
+//        else
+//        {
+//            System.out.print("This tree already has a root");
+//        }
         root = new TreeNode(x);
         queue.add(root);
         depth++;
@@ -138,7 +148,7 @@ public class Tree
     public void searchNodeTest(TreeNode node, int x)
     {
         //if found
-        if(searchNode(node, x))
+        if(searchNode(node, x) == true)
         {
             System.out.println("Value was found within the tree");
         }//end if
@@ -150,6 +160,7 @@ public class Tree
 
     public boolean searchNode(TreeNode node, int x)
     {
+        found = false;
         //if the tree is empty print out empty
         if(root == null)
         {
@@ -160,7 +171,7 @@ public class Tree
             //if the value is that node return true
             if(node.value == x)
             {
-                return true;
+                found = true;
             }//end inner if
             //if not found search left node
             if(!found && node.left != null)

@@ -9,6 +9,11 @@ public class Main {
         System.out.println("Root");
         myTree.printInOrder(myTree.getRoot());
 
+//        //adds second root
+//        myTree.addRoot(10000);
+//        System.out.println("Root 2");
+//        myTree.printInOrder(myTree.getRoot());
+
         //adds a row
         myTree.addRow();
         System.out.println("\nRow 1");
