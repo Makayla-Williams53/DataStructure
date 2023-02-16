@@ -29,19 +29,16 @@ public class Tree
     //create root
     public void addRoot(int x)
     {
-//        if(queue.isEmpty())
-//        {
-//            root = new TreeNode(x);
-//            queue.add(root);
-//            depth++;
-//        }
-//        else
-//        {
-//            System.out.print("This tree already has a root");
-//        }
-        root = new TreeNode(x);
-        queue.add(root);
-        depth++;
+        if(queue.isEmpty())
+        {
+            root = new TreeNode(x);
+            queue.add(root);
+            depth++;
+        }
+        else
+        {
+            System.out.println("\nThis tree already has a root");
+        }
     }//end addRoot
 
     //add row
